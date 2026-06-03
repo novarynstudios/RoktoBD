@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=Hind+Siliguri:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-heading: "Space Grotesk", "Hind Siliguri", "Lato", sans-serif;
+  --font-sans: "Space Grotesk", "Lato", "Hind Siliguri", sans-serif;
+  
+  --color-red-primary: #E11D48;
+  --color-red-light: #F43F5E;
+  --color-red-pale: #FFE4E6;
+  --color-off-white: #F5F5F7;
+  --color-green-safe: #10B981;
+  --color-orange-urgent: #F59E0B;
+  --color-red-critical: #E11D48;
+  
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+}
+
+/* Base resets in Bento theme style */
+body {
+  font-family: var(--font-sans);
+  background-color: #F8F9FA;
+  color: #0F172A;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  letter-spacing: -0.03em;
+  font-weight: 800;
+}
+
+/* Custom Bento Styling Helpers */
+.bento-card {
+  background-color: #FFFFFF;
+  border: 2.5px solid #000000;
+  border-radius: 24px;
+  box-shadow: 4px 4px 0px 0px #000000;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.bento-card:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 7px 7px 0px 0px #000000;
+}
+
+.bento-button {
+  border: 2px solid #000000;
+  box-shadow: 3px 3px 0px 0px #000000;
+  transition: all 0.15s ease-out;
+}
+
+.bento-button:hover {
+  transform: translate(-1.5px, -1.5px);
+  box-shadow: 4.5px 4.5px 0px 0px #000000;
+}
+
+.bento-button:active {
+  transform: translate(1.5px, 1.5px);
+  box-shadow: 0px 0px 0px 0px #000000;
+}
+
+/* Input boxes in Bento theme */
+input, select, textarea {
+  border: 2px solid #000000 !important;
+  border-radius: 12px !important;
+  box-shadow: 2px 2px 0px 0px #000000 !important;
+  transition: all 0.1s ease-out;
+}
+
+input:focus, select:focus, textarea:focus {
+  transform: translate(-1px, -1px);
+  box-shadow: 3.5px 3.5px 0px 0px #000000 !important;
+  outline: none !important;
+}
+
+/* Pulsing outline keyframe animation for critical patient blood request cards */
+@keyframes pulse-border {
+  0%   { box-shadow: 4px 4px 0px 0px rgba(0, 0, 0, 1); }
+  50%  { box-shadow: 4px 4px 0px 0px rgba(225, 29, 72, 1); }
+  100% { box-shadow: 4px 4px 0px 0px rgba(0, 0, 0, 1); }
+}
+
+.animate-pulse-border {
+  animation: pulse-border 2s infinite;
+}
+
+/* Hide native scrolls yet enable flow */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #F1F5F9;
+}
+::-webkit-scrollbar-thumb {
+  background: #000000;
+  border: 2px solid #F1F5F9;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #E11D48;
+}
